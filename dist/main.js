@@ -1,0 +1,13 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+const Product_1 = require("./interfaces/Product");
+const InMemoryStorage_1 = require("./services/InMemoryStorage");
+const Cart_1 = require("./services/Cart");
+const crayon = new Product_1.Product("Crayon", 6);
+const stylo = new Product_1.Product("Stylo", 3);
+const storage = new InMemoryStorage_1.InMemoryStorage();
+const cart = new Cart_1.Cart(storage);
+cart.addProduct(crayon);
+cart.addProduct(stylo);
+console.log("My Cart:", cart.getProducts());
+console.log("Total Price:", cart.getTotalPrice());
